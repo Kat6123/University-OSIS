@@ -1,0 +1,2 @@
+int startDaemon();
+void createDaemon();
