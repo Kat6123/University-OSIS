@@ -1,19 +1,24 @@
 #include "daemon.h"
 #include "utils.h"
+#include "tracker.h"
 #include "handler.h"
 #include <unistd.h>
 #include <iostream>
 #include <csignal>
+#include <thread>
 
 using namespace std;
 
 int startDaemon(){
   signal(SIGHUP, updateSignals);
-  raise(SIGHUP);
+
+  pid_t pid = getpid();
+  thread tracker(track, pid);
+
   while(1) {
-   std::cout << "Going to sleep...." << std::endl;
    usleep(1000000);
   }
+  tracker.join();
   return 0;
 }
 

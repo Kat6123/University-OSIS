@@ -1,4 +1,4 @@
-SRC=main.cpp daemon.cpp handler.cpp utils.cpp
+SRC=main.cpp daemon.cpp handler.cpp utils.cpp tracker.cpp
 EXE=signalHandler
 
 CFlags= -std=c++0x -c -Wall -g -Iinc

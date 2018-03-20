@@ -15,6 +15,7 @@ void signalHandler( int signum ) {
 }
 
 void updateSignals(int signum){
+  log(string("Signal updating: ") + now());
   unordered_set<int> signals = {};
 
   ifstream infile(CONFIG);
